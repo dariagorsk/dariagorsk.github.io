@@ -8,7 +8,8 @@
 body {
   background: white;
   font-family: 'Inter', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .page-wrapper {
@@ -48,7 +49,7 @@ body {
 }
 
 .content {
-  top: 785px;
+  top: 745px;
   left: 241px;
   font-size: 46px;
 }
@@ -72,5 +73,4 @@ body {
 }
 .design:hover {
   font-size: 54px;
-}
 }
