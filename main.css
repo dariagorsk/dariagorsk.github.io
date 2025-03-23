@@ -1,3 +1,4 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -5,79 +6,71 @@
 }
 
 body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #fff;
-  color: #111;
-  padding: 2rem;
+  background: white;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3rem;
+.page-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
 
 /* Illustration */
 .illustration {
-  border: 2px solid #111;
-  padding: 0.5rem;
-  border-radius: 8px;
-  max-width: 250px;
-  width: 100%;
+  width: 233px;
+  height: 233px;
+  position: absolute;
+  top: 328px;
+  left: 343px;
+  border: none;
 }
 
-.illustration img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Navigation */
-.navigation {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  text-align: center;
-}
-
-.nav-item {
-  text-decoration: none;
+/* NAV Items (shared styles) */
+.nav {
+  position: absolute;
   color: black;
-  font-weight: normal;
-  padding: 0.5rem 1rem;
-  border: 1px solid #111;
-  border-radius: 5px;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
-.nav-item:hover {
-  background-color: #f5f5f5;
-  transform: scale(1.05);
+/* Individual placement + base sizes */
+.animations {
+  top: 250px;
+  left: 791px;
+  font-size: 70px;
+}
+.animations:hover {
+  font-size: 100px;
 }
 
-/* Text Sizes */
-.large {
-  font-size: 2rem;
+.content {
+  top: 785px;
+  left: 241px;
+  font-size: 46px;
 }
-.medium {
-  font-size: 1.5rem;
-}
-.xlarge {
-  font-size: 2.5rem;
-}
-.small {
-  font-size: 1.2rem;
+.content:hover {
+  font-size: 60px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .nav-item {
-    font-size: 1rem;
-  }
+.upcycling {
+  top: 83px;
+  left: 148px;
+  font-size: 30px;
+}
+.upcycling:hover {
+  font-size: 50px;
+}
 
-  .xlarge {
-    font-size: 1.5rem;
-  }
+.design {
+  top: 601px;
+  left: 996px;
+  font-size: 38px;
+}
+.design:hover {
+  font-size: 54px;
+}
 }
