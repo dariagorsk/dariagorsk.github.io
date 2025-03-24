@@ -1,4 +1,3 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +17,6 @@ body {
   position: relative;
 }
 
-/* Illustration */
 .illustration {
   width: 233px;
   height: 233px;
@@ -28,7 +26,6 @@ body {
   border: none;
 }
 
-/* NAV Items (shared styles) */
 .nav {
   position: absolute;
   color: black;
@@ -38,7 +35,6 @@ body {
   display: inline-block;
 }
 
-/* Individual placement + base sizes */
 .animations {
   top: 250px;
   left: 791px;
