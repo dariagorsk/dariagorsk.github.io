@@ -30,7 +30,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 80px;
-  animation: floatUp 30s linear infinite;
+  animation: floatUp 60s linear infinite;
 }
 
 .up-img {
@@ -51,3 +51,37 @@ body {
     transform: translateY(-100%);
   }
 }
+
+@media (max-width: 768px) {
+    .title {
+      font-size: 50px;
+      margin-bottom: 60px;
+    }
+  
+    .image-container {
+      gap: 40px;
+    }
+  
+    .up-img {
+      width: 180px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+  
+    .image-container {
+      flex-direction: column; 
+      gap: 24px;
+      animation: none;      
+    }
+  
+    .up-img {
+      width: 100%; 
+      max-width: 300px; 
+    }
+  }
+  

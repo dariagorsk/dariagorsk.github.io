@@ -70,3 +70,119 @@ body {
 .design:hover {
   font-size: 54px;
 }
+
+@media (max-width: 1024px) and (min-width: 481px) {
+  .upcycling {
+    top: 40px;
+    left: 20px;
+    font-size: 24px;
+    transform: none; 
+  }
+
+  .animations {
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+  }
+
+  .illustration {
+    top: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: auto;
+  }
+
+  .design {
+    top: 480px;
+    left: 55%;
+    transform: translateX(-50%);
+    font-size: 30px;
+  }
+
+  .content {
+    top: 600px;
+    left: 45%;
+    transform: translateX(-50%);
+    font-size: 26px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .illustration {
+    top: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 180px;
+  }
+
+  .animations {
+    top: 180px;
+    left: 50%;
+    font-size: 50px;
+    transform: translateX(-50%);
+  }
+
+  .content {
+    top: 600px;
+    left: 50%;
+    font-size: 36px;
+    transform: translateX(-50%);
+  }
+
+  .upcycling {
+    top: 80px;
+    left: 50%;
+    font-size: 24px;
+    transform: translateX(-50%);
+  }
+
+  .design {
+    top: 480px;
+    left: 50%;
+    font-size: 30px;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .upcycling {
+    top: 20px;  
+    left: 20px;
+    font-size: 20px;  
+    transform: none;
+  }
+
+  .animations {
+    top: 80px;    
+    left: 50%;           
+    transform: translateX(-50%);
+    font-size: 36px;   
+  }
+
+  .illustration {
+    top: 200px;          
+    left: 50%;           
+    transform: translateX(-50%);
+    width: 150px;      
+    height: auto;
+  }
+
+  .design {
+    top: 360px;          
+    left: 50%;           
+    transform: translateX(-50%);
+    font-size: 22px;
+  }
+
+  .content {
+    top: 440px;          
+    left: 50%;           
+    transform: translateX(-50%);
+    font-size: 20px;
+  }
+}
+
