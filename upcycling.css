@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: white;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.page-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 100px 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 70px;
+  margin-bottom: 100px;
+  font-weight: 400;
+}
+
+.image-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+  animation: floatUp 30s linear infinite;
+}
+
+.up-img {
+  width: 250px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.up-img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
