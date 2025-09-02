@@ -59,11 +59,12 @@ body {
 .panel.is-active { display: block; }
 
 /* ========== Summary line under tabs ========== */
-.summary {
-  max-width: 72ch;
-  margin: 12px auto 36px;
-  color: #444;
-  text-align: center;
+.summary{
+  max-width: 100ch;
+  text-align: left;          /* was center */
+  margin: 12px 0 36px;       /* stop centering the block itself */
+  margin-left: 0;
+  margin-right: auto; 
 }
 
 /* ========== UX layout (media + text) ========== */
@@ -134,7 +135,7 @@ body {
   height: 420px;               /* compact vertical footprint */
   overflow: hidden;
   border-radius: 16px;
-  background: #f6f6f6;
+  background: #fff;
 }
 
 /* horizontal scroll + snap */
@@ -184,4 +185,148 @@ body {
 @media (max-width: 600px) {
   .gallery-container { height: 300px; }
   .gallery { gap: 16px; padding: 0 40px; }
+}
+
+:root{
+  --accent: #1e40e6;       /* blue outline/text */
+  --chip-bg: #f7f3eb;      /* warm paper background like the screenshot */
+  /* hotspot at 6px right, 2px down from top-left of the image */
+  --cursor: url("design/lipstick_cursor24.png") 6 2, auto;
+  --cursor-link: url("design/lipstick_cursor24.png") 6 2, pointer;
+}
+
+html, body, * { cursor: var(--cursor); }
+
+/* keep link/button affordance (optional use a different tilt icon if you have one) */
+a, button, [role="button"], .clickable { cursor: var(--cursor-link); }
+
+/* Retina/Hi-DPI: swap to 2x asset and hotspot doubled */
+@media (min-resolution: 2dppx) {
+  :root{
+    --cursor: url("design/lipstick_cursor_retina.png") 12 4, auto;
+    --cursor-link: url("design/lipstick_cursor_retina.png") 12 4, pointer;
+  }
+}
+
+/* Use TASA Explorer for headings */
+.page-title,
+.ux-text h3{
+  font-family: "TASA Explorer", serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Make section headings a bit larger */
+.ux-text h3{
+  font-size: clamp(44px, 2.6vw, 60px);
+}
+
+/* Meta list with bold labels (Role:, Artifacts:) */
+.meta{
+  font-size: 18px;
+  color: #555;
+}
+.meta strong{
+  font-weight: 700;
+  color: #3a3a3a;
+}
+
+:root{
+  --accent: #1e40e6;   /* blue outline/text */
+}
+
+/* stack the two ovals one per row */
+.meta.pills{
+  display: flex;
+  flex-direction: column;   /* 1 per row */
+  gap: 8px;
+  margin-top: 8px;
+  padding: 0;               /* override any list padding */
+}
+
+/* each li becomes an oval “pill” */
+.meta.pills li{
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 2px solid var(--accent);
+  border-radius: 9999px;
+  padding: 12px 20px;
+  background: #fff;
+
+  font-family: "TASA Explorer", serif;  /* your font */
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(10px, 1.8vw, 14px);
+  letter-spacing: 0.05em;
+  word-spacing: 0.18em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+/* label inside the pill */
+.meta.pills li strong{
+  font-style: normal;     /* keep label upright */
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--accent);
+  margin-right: 2px;
+}
+
+/* optional hover polish */
+.meta.pills li:hover{
+  transform: translateY(-1px);
+  transition: transform .08s ease;
+}
+
+/* on very small screens tighten the padding */
+@media (max-width: 420px){
+  .meta.pills li{ padding: 10px 14px; font-size: 12px; }
+}
+
+/* ===== Spacing scale (tweak these to taste) ===== */
+:root{
+  --s1: 8px;
+  --s2: 12px;
+  --s3: 16px;
+  --s4: 24px;
+  --s5: 32px;
+  --s6: 48px;
+  --s7: 64px;
+}
+
+/* Page frame */
+.page-wrapper{ padding-top: var(--s7); padding-bottom: var(--s7); }
+.page-title{ margin-bottom: var(--s5); }
+
+/* Tabs + tagline */
+.tabs{ margin: 0 auto var(--s5); }
+.summary{ margin: var(--s3) auto var(--s6); line-height: 1.6; }
+
+/* Each case block (carousel+About, Use cases, Usability testing…) */
+.ux-case{
+  gap: clamp(var(--s4), 5vw, var(--s6));         /* space between media and text columns */
+  margin: clamp(var(--s5), 8vw, var(--s7)) 0;    /* space above/below each section */
+}
+
+/* Make the “stack” variant breathe a bit too */
+.ux-case.stack{ gap: var(--s4); }
+
+/* Text column rhythm */
+.ux-text h3{ margin: 0 0 var(--s3); }
+.ux-text p{ line-height: 1.7; }
+.ux-text > * + *{ margin-top: var(--s3); }       /* adds space between any items (p, ul, etc.) */
+
+/* Meta pills spacing */
+.meta.pills{ gap: var(--s3); margin-top: var(--s3); }
+.meta.pills li{ padding: 14px 22px; }
+
+/* Carousel height + extra room inside if needed */
+.gallery-container{ height: 460px; }
+.gallery{ --vpad: 24px; padding: var(--vpad) 48px; gap: 24px; }
+@media (max-width: 600px){
+  .gallery-container{ height: 340px; }
+  .gallery{ --vpad: 12px; padding: var(--vpad) 40px; gap: 16px; }
 }
