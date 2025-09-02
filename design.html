@@ -27,27 +27,33 @@
 
   <!-- Screens gallery -->
   <article class="ux-case">
-    <div class="ux-gallery">
-      <figure><img src="design/start.png" alt="Start screen" loading="lazy"><figcaption>Start</figcaption></figure>
-      <figure><img src="design/get_started.png" alt="Get started screen" loading="lazy"><figcaption>Get started</figcaption></figure>
-      <figure><img src="design/Sign_in_email_password.png" alt="Sign in — email & password" loading="lazy"><figcaption>Sign in</figcaption></figure>
-      <figure><img src="design/start_all_typed.png" alt="Start with typed fields" loading="lazy"><figcaption>Start (typed)</figcaption></figure>
-      <figure><img src="design/music.png" alt="Music category" loading="lazy"><figcaption>Music</figcaption></figure>
-      <figure><img src="adesign/5km.png" alt="5 km distance filter" loading="lazy"><figcaption>5 km</figcaption></figure>
-      <figure><img src="design/choose_city.png" alt="Choose city" loading="lazy"><figcaption>Choose city</figcaption></figure>
-      <figure><img src="design/All_set.png" alt="All set confirmation" loading="lazy"><figcaption>All set</figcaption></figure>
-      <figure><img src="design/Discover_general.png" alt="Discover — general" loading="lazy"><figcaption>Discover</figcaption></figure>
-      <figure><img src="design/Discover_3_events1.png" alt="Discover — 3 events" loading="lazy"><figcaption>Discover (3 events)</figcaption></figure>
-      <figure><img src="design/Discover_12May.png" alt="Discover by date 12 May" loading="lazy"><figcaption>Discover by date</figcaption></figure>
-      <figure><img src="design/refine_search.png" alt="Refine search" loading="lazy"><figcaption>Refine search</figcaption></figure>
-      <figure><img src="design/Search.png" alt="Search screen" loading="lazy"><figcaption>Search</figcaption></figure>
-      <figure><img src="design/Within_your_reach.png" alt="Within your reach view" loading="lazy"><figcaption>Within your reach</figcaption></figure>
-      <figure><img src="design/Venue_soma.png" alt="Venue — Soma" loading="lazy"><figcaption>Venue</figcaption></figure>
-      <figure><img src="design/Event_details_patrick.png" alt="Event details — Patrick" loading="lazy"><figcaption>Event details</figcaption></figure>
-      <figure><img src="design/Event_details_transition.png" alt="Event details transition" loading="lazy"><figcaption>Details transition</figcaption></figure>
-      <figure><img src="design/User_profile.png" alt="User profile" loading="lazy"><figcaption>User profile</figcaption></figure>
-      <figure><img src="design/User.png" alt="User card" loading="lazy"><figcaption>User</figcaption></figure>
-    </div>
+    <div class="gallery-container">
+  <button class="arrow left" id="prev" aria-label="Previous">&#8592;</button>
+
+  <div class="gallery" id="gallery">
+    <img src="design/start.png" alt="Start screen" loading="lazy">
+    <img src="design/get_started.png" alt="Get started" loading="lazy">
+    <img src="design/Sign_in_email_password.png" alt="Sign in — email & password" loading="lazy">
+    <img src="design/start_all_typed.png" alt="Start with typed fields" loading="lazy">
+    <img src="design/music.png" alt="Music category" loading="lazy">
+    <img src="design/5km.png" alt="5 km distance filter" loading="lazy">
+    <img src="design/choose_city.png" alt="Choose city" loading="lazy">
+    <img src="design/All_set.png" alt="All set confirmation" loading="lazy">
+    <img src="design/Discover_general.png" alt="Discover — general" loading="lazy">
+    <img src="design/Discover_3_events1.png" alt="Discover — 3 events" loading="lazy">
+    <img src="design/Discover_12May.png" alt="Discover by date 12 May" loading="lazy">
+    <img src="design/refine_search.png" alt="Refine search" loading="lazy">
+    <img src="design/Search.png" alt="Search screen" loading="lazy">
+    <img src="design/Within_your_reach.png" alt="Within your reach view" loading="lazy">
+    <img src="design/Venue_soma.png" alt="Venue — Soma" loading="lazy">
+    <img src="design/Event_details_patrick.png" alt="Event details — Patrick" loading="lazy">
+    <img src="design/Event_details_transition.png" alt="Event details transition" loading="lazy">
+    <img src="design/User_profile.png" alt="User profile" loading="lazy">
+    <img src="design/User.png" alt="User card" loading="lazy">
+  </div>
+
+  <button class="arrow right" id="next" aria-label="Next">&#8594;</button>
+</div>
 
     <!-- About -->
     <div class="ux-text">
@@ -67,18 +73,18 @@
 
   <!-- Use cases / edge cases -->
   <article class="ux-case">
-    <div class="ux-gallery">
-      <figure>
-        <img src="design/Use_cases_events_app.png" alt="Use cases and edge cases overview" loading="lazy">
-        <figcaption>Use cases & edge cases (FigJam export)</figcaption>
-      </figure>
-    </div>
-    <div class="ux-text">
+        <div class="ux-text">
       <h3>UX / UI</h3>
       <p>
         Mapped key journeys and edge cases (venue closed, tickets sold out, location denied) to
         keep states predictable and resilient.
       </p>
+    </div>
+    <div class="ux-gallery">
+      <figure>
+        <img src="design/Use_cases_events_app.png" alt="Use cases and edge cases overview" loading="lazy">
+        <figcaption>Use cases & edge cases (FigJam export)</figcaption>
+      </figure>
     </div>
   </article>
 
@@ -160,25 +166,6 @@
 
   </div>
 
-<!-- <script src="design.js"></script> -->
-
-<!-- <script src="design.js"></script> -->
-<script>
-  const tabs = document.querySelectorAll('.tab[data-project]');
-  const panels = document.querySelectorAll('#panels .panel');
-
-  function show(id) {
-    tabs.forEach(b => b.classList.toggle('active', b.dataset.project === id));
-    panels.forEach(p => p.classList.toggle('is-active', p.id === id));
-    history.replaceState(null, '', '#' + id);
-  }
-
-  tabs.forEach(b => b.addEventListener('click', () => show(b.dataset.project)));
-
-  // open from URL hash (#events | #learning | #co2)
-  const initial = (location.hash || '#events').slice(1);
-  show(['events','learning','co2'].includes(initial) ? initial : 'events');
-</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -187,15 +174,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const next  = document.getElementById('next');
   const items = Array.from(track.children);
 
-  // helper: center slide in view
   function scrollToIndex(i) {
     const el = items[Math.max(0, Math.min(i, items.length - 1))];
     const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
     const target = el.offsetLeft - padLeft - (track.clientWidth - el.clientWidth) / 2;
     track.scrollTo({ left: target, behavior: 'smooth' });
   }
-
-  // find the slide nearest the center
   function currentIndex() {
     const center = track.scrollLeft + track.clientWidth / 2;
     let idx = 0, best = Infinity;
@@ -206,12 +190,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     return idx;
   }
-
   prev.addEventListener('click', () => scrollToIndex(currentIndex() - 1));
   next.addEventListener('click', () => scrollToIndex(currentIndex() + 1));
-
-  // keyboard support
-  track.tabIndex = 0; // make focusable
+  track.tabIndex = 0;
   track.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollToIndex(currentIndex() - 1); }
     if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(currentIndex() + 1); }
