@@ -67,6 +67,33 @@ body {
 }
 
 /* ========== UX layout (media + text) ========== */
+
+/* Stack this case (text then media) */
+.ux-case.stack { grid-template-columns: 1fr; gap: 16px; }
+
+/* Poster: keep intrinsic size, never upscale, center it */
+.poster { margin: 12px auto 40px; }
+.poster img {
+  display: block;
+  width: 100%;     /* fill container width */
+  height: auto;    /* keep aspect */
+  /* remove any max-height cap */
+}
+
+/* Make the poster span the entire viewport width (edge-to-edge) */
+.poster--bleed {
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+}
+.poster--bleed img { width: 100%; height: auto; }
+
+/* On large screens, keep the usual left/right feel: text left, image right */
+@media (min-width: 961px) {
+  .ux-case.stack { grid-template-columns: 1fr; } /* still single column for text first */
+  /* If you prefer image truly to the right side of the text area (not full-bleed),
+     remove fullbleed--viewport and just keep .fullbleed with width:100% */
+}
+
 .ux-case {
   display: grid;
   grid-template-columns: 1.5fr 1fr; /* media | text */
