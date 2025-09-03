@@ -250,6 +250,24 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 .arrow.right{ right:8px; }
 .arrow:hover{ background:#fff; }
 
+/* --- Make gallery arrows always clickable above the slides --- */
+.gallery-container { position: relative; }
+
+.gallery { position: relative; z-index: 1; }
+.gallery img,
+.gallery video { position: relative; z-index: 1; }
+
+.gallery-container .arrow {
+  position: absolute;          /* you already have this */
+  z-index: 20;                 /* <-- put arrows on top */
+  pointer-events: auto;        /* just in case */
+}
+
+/* If you have gradient edge fades, make them ignore clicks */
+.gallery-container::before,
+.gallery-container::after { pointer-events: none; }
+
+
 @media (max-width:600px){
   .gallery-container{ height:340px; }
   .gallery{ --vpad:12px; gap:16px; padding:var(--vpad) 40px; }
@@ -407,3 +425,24 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   image-rendering: crisp-edges;
 }
 
+/* CO₂: centered gallery just like Learning, with comfy height */
+#co2 .center-gallery .gallery-container{
+  max-width: min(1280px, 98vw);
+  margin: 0 auto;
+}
+
+#co2 .gallery-container{ height: 420px; }          /* tune if your PNGs are taller/shorter */
+#co2 .gallery{
+  --vpad: 20px;
+  --hpad-left: 24px;
+  --hpad-right: 24px;
+  padding: var(--vpad) var(--hpad-right) var(--vpad) var(--hpad-left);
+  gap: 24px;
+}
+
+#co2 .gallery img{
+  object-fit: contain;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}

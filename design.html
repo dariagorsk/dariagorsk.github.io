@@ -252,35 +252,125 @@
     </button>
   </figure>
 
-  <!-- Add more items here, they’ll line up with 24px gaps and wrap -->
+    <!-- Resources button -->
+  <figure class="ds-tile">
+    <button class="ds-sprite"
+            style="--w:354"
+            data-frames="design/LP/design_system/resources_card_default.png,
+                         design/LP/design_system/resources_card_hover.png"
+            aria-label="Resources button">
+    </button>
+  </figure>
+
+      <!-- LP button -->
+  <figure class="ds-tile">
+    <button class="ds-sprite"
+            style="--w:354"
+            data-frames="design/LP/design_system/LP_default.png,
+                         design/LP/design_system/LP_hover.png"
+            aria-label="LP button">
+    </button>
+  </figure>
+
+        <!-- Toast notifications -->
+  <figure class="ds-tile">
+    <button class="ds-sprite"
+            style="--w:261"
+            data-frames="design/LP/design_system/toast_success.png,
+                         design/LP/design_system/toast_error.png,
+                         design/LP/design_system/toast_warning.png,
+                         design/LP/design_system/toast_information.png"
+            aria-label="Toast notification">
+    </button>
+  </figure>
+  </div> 
 </section>
 
+ <!-- CO2 -->
 
+<section id="co2" class="panel">
+  <p class="summary summary--fixed">
+    CO₂ mineralization prototype,<br>
+    showcasing the first stage of the<br>
+    chemical process — project collaboration<br>
+    with “Blue Skies Minerals” start-up.
+  </p>
 
-      <!-- CO₂ (unchanged) -->
-      <section id="co2" class="panel">
-        <article class="ux-case">
-          <div class="ux-gallery">
-            <video src="assets/videos/co2-prototype.mp4" autoplay muted loop playsinline poster="assets/posters/co2-prototype.jpg"></video>
-            <figure>
-              <img src="assets/ux/co2/status-leds.jpg" alt="Status & error states lighting concept" loading="lazy">
-              <figcaption>Status & error states</figcaption>
-            </figure>
-          </div>
-          <div class="ux-text">
-            <h3>CO₂ prototype — reactor UI & status lighting</h3>
-            <p><strong>Problem:</strong> need fast state recognition during operation.</p>
-            <p><strong>Approach:</strong> designed touch UI and RGBW lighting behaviours for success/error.</p>
-            <ul class="meta">
-              <li><strong>Role:</strong> Display UI, lighting behaviour</li>
-              <li><strong>Stack:</strong> Raspberry Pi UI, Arduino Opta RS485, RGBW LEDs</li>
-              <li><strong>Outcome:</strong> testable interface + visual alerts</li>
-            </ul>
-          </div>
-        </article>
-      </section>
+  <article class="ux-case">
+    <div class="gallery-container">
+      <button class="arrow left" aria-label="Previous">←</button>
+      <div class="gallery">
+
+        <!-- Slide 1 -->
+        <video class="lazyvid" playsinline muted loop preload="metadata"
+               poster="design/CO2/prototype_big_pic.jpg" controls>
+          <source data-src="design/CO2/videos/IMG_8307_720p.mp4" type="video/mp4">
+        </video>
+
+        <!-- Slide 2 -->
+        <video class="lazyvid" playsinline muted loop preload="metadata"
+               poster="design/CO2/prototype_pic.jpg" controls>
+          <source data-src="design/CO2/videos/IMG_8309_720p.mp4" type="video/mp4">
+        </video>
+
+        <!-- Slide 3 -->
+        <video class="lazyvid" playsinline muted loop preload="metadata"
+               poster="design/CO2/prototype_pic_big2.jpg" controls>
+          <source data-src="design/CO2/videos/IMG_8231.mp4" type="video/mp4">
+        </video>
+      </div>
+      <button class="arrow right" aria-label="Next">→</button>
     </div>
+
+    <div class="ux-text">
+      <h3>CO₂ prototype — reactor UI & status lighting</h3>
+      <p><strong>Problem:</strong> need fast state recognition during operation.</p>
+      <p><strong>Approach:</strong> designed touch UI and RGBW lighting behaviours for success/error.</p>
+      <ul class="meta">
+        <li><strong>Role:</strong> Display UI, lighting behaviour</li>
+        <li><strong>Stack:</strong> Raspberry Pi UI, Arduino Opta RS485, RGBW LEDs</li>
+        <li><strong>Outcome:</strong> testable interface + visual alerts</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- CO₂ — UX / UI -->
+<div class="learn-block">
+  <div class="ux-text rail-left">
+    <h3>UX / UI</h3>
+    <p>
+      Developed and iterated on control-screen layouts for the reactor, prioritising
+      at-a-glance status, fault visibility, and one-tap actions. Established clear
+      alarm tiers (colour + icon + copy) and tuned typography/contrast for readability
+      at ~1–2 m in mixed lighting.
+    </p>
   </div>
+</div>
+
+<!-- Centered gallery of PNGs -->
+<div class="center-gallery">
+  <div class="gallery-container" data-gallery="co2-ui">
+    <button class="arrow left" aria-label="Previous">←</button>
+    <div class="gallery">
+      <!-- swap these for your actual PNGs -->
+      <img src="design/CO2/Control_mode.png"  alt="Main control screen">
+      <img src="design/CO2/check.png"   alt="Run state">
+      <img src="design/CO2/Control_mode_alert.png" alt="Fault state">
+      <img src="design/CO2/Curve_diagram2.png"  alt="Logs / telemetry">
+      <img src="design/CO2/Process1.png" alt="Fault state">
+      <img src="design/CO2/process2.png"  alt="Logs / telemetry">
+      <img src="design/CO2/process3.png" alt="Fault state">
+      <img src="design/CO2/process4.png"  alt="Logs / telemetry">
+      <img src="design/CO2/process5.png" alt="Fault state">
+      <img src="design/CO2/process6.png"  alt="Logs / telemetry">
+      <img src="design/CO2/process7.png"  alt="Logs / telemetry">
+    </div>
+    <button class="arrow right" aria-label="Next">→</button>
+  </div>
+</div>
+
+</section>
+
 
     …
   <!-- JS: carousels (Events + Learning hero + Wireframes) -->
@@ -323,22 +413,6 @@
   });
   </script>
 
-  <!-- JS: tabs switcher (leave this as you have it) -->
-  <script>
-  (() => {
-    const tabs = document.querySelectorAll('.tab[data-project]');
-    const panels = document.querySelectorAll('#panels .panel');
-    function show(id){
-      tabs.forEach(t => t.classList.toggle('active', t.dataset.project === id));
-      panels.forEach(p => p.classList.toggle('is-active', p.id === id));
-      history.replaceState(null, '', '#' + id);
-    }
-    tabs.forEach(t => t.addEventListener('click', (e) => { e.preventDefault(); show(t.dataset.project); }));
-    const initial = (location.hash || '#events').slice(1);
-    show(['events','learning','co2'].includes(initial) ? initial : 'events');
-  })();
-  </script>
-
 <script>
 /* Minimal sprite-cycler: click to advance to the next frame */
 (function () {
@@ -361,6 +435,32 @@
 })();
 </script>
 
+<script>
+function hydrateVideos(scope){
+  scope.querySelectorAll('video source[data-src]').forEach(s=>{
+    s.src = s.dataset.src;
+    s.removeAttribute('data-src');
+    s.parentElement.load();
+  });
+}
+
+(() => {
+  const tabs = document.querySelectorAll('.tab[data-project]');
+  const panels = document.querySelectorAll('#panels .panel');
+
+  function show(id){
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.project === id));
+    panels.forEach(p => p.classList.toggle('is-active', p.id === id));
+    const active = document.getElementById(id);
+    if (active) hydrateVideos(active);   // <-- loads CO₂ sources on demand
+    history.replaceState(null, '', '#' + id);
+  }
+
+  tabs.forEach(t => t.addEventListener('click', e => { e.preventDefault(); show(t.dataset.project); }));
+  const initial = (location.hash || '#events').slice(1);
+  show(['events','learning','co2'].includes(initial) ? initial : 'events');
+})();
+</script>
 
 </body>
 </html>
