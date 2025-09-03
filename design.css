@@ -1,21 +1,33 @@
-/* ========== VARIABLES ========== */
+/* =========================
+   VARIABLES
+   ========================= */
 :root{
   --accent: #1e40e6;
   --s1: 8px; --s2: 12px; --s3: 16px; --s4: 24px; --s5: 32px; --s6: 48px; --s7: 64px;
+
   /* cursors */
   --cursor: url("design/lipstick_cursor24.png") 6 2, auto;
   --cursor-link: url("design/lipstick_cursor24.png") 6 2, pointer;
 }
 
-/* ========== BASE ========== */
+/* =========================
+   BASE
+   ========================= */
 *{ box-sizing:border-box; margin:0; padding:0; }
+
 html,body{
   font-family:"Crimson Text", Georgia, Cambria, "Times New Roman", serif;
-  font-weight:400; line-height:1.6; color:#111; background:#fff;
-  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  font-weight:400;
+  line-height:1.6;
+  color:#111;
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
+
 html, body, *{ cursor:var(--cursor); }
 a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
+
 @media (min-resolution:2dppx){
   :root{
     --cursor: url("design/lipstick_cursor_retina.png") 12 4, auto;
@@ -23,26 +35,59 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   }
 }
 
-/* ========== PAGE FRAME ========== */
-.page-wrapper{ width:90%; max-width:1200px; margin:0 auto; padding:var(--s7) 0; text-align:center; }
-.page-title{ font-family:"TASA Explorer", serif; font-weight:700; letter-spacing:.02em;
-  font-size:clamp(38px,6vw,64px); margin-bottom:var(--s5); }
+/* =========================
+   PAGE FRAME
+   ========================= */
+.page-wrapper{
+  width:90%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:var(--s7) 0;
+  text-align:center;
+}
 
-/* ========== TABS (text-only with underline) ========== */
+/* =========================
+   TABS (text-only with underline)
+   ========================= */
 .tabs{
-  display:flex; justify-content:space-evenly; align-items:center;
-  gap:clamp(24px,8vw,160px); max-width:1100px; margin:0 auto var(--s5);
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
+  gap:clamp(24px,8vw,160px);
+  max-width:1100px;
+  margin:0 auto clamp(64px, 10vw, 160px);
 }
+
 .tab{
-  background:transparent; border:none; padding:0; width:auto; position:relative;
-  font-family:"TASA Explorer", serif; font-weight:400; font-style:normal;
-  font-size:clamp(20px,1vw,36px); line-height:1.2; letter-spacing:.01em; color:#101010;
-  opacity:.75; cursor:pointer; transition:opacity .2s ease, transform .05s ease;
+  background:transparent;
+  border:none;
+  padding:0;
+  width:auto;
+  position:relative;
+
+  font-family:"TASA Explorer", serif;
+  font-weight:400;
+  font-size:clamp(20px,1vw,36px);
+  line-height:1.2;
+  letter-spacing:.01em;
+  color:#101010;
+
+  opacity:.75;
+  cursor:pointer;
+  transition:opacity .2s ease, transform .05s ease;
 }
+
 .tab::after{
-  content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:currentColor;
-  transform:scaleX(0); transform-origin:left center; transition:transform .25s ease;
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-8px;
+  height:2px;
+  background:currentColor;
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .25s ease;
 }
+
 .tab:hover{ opacity:1; transform:translateY(-1px); }
 .tab:hover::after{ transform:scaleX(1); }
 
@@ -55,102 +100,269 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   .tab::after{ bottom:-6px; }
 }
 
-/* ========== PANELS ========== */
+/* =========================
+   PANELS
+   ========================= */
 .panel{ display:none; }
 .panel.is-active{ display:block; }
 
-/* one-liner under tabs */
+/* Sentence under tabs (both sections share this) */
 .summary{
-  max-width:100ch; text-align:left; margin:var(--s3) 0 var(--s6);
+  max-width:100ch;
+  text-align:left;
+  margin:var(--s3) 0 var(--s6);
 }
 
 .summary.summary--fixed{
-  max-width: none;          /* let your manual breaks control wrapping */
-  text-align: left;
-  line-height: 1.55;        /* a bit more breathing room between lines */
-  margin: var(--s7,28px) 0 var(--s6,48px);
+  max-width:none;            /* you control wrapping with <br> */
+  text-align:left;
+  line-height:1.55;
+  margin:var(--s7) 0 var(--s6);
 }
 
-/* ========== CONTENT SECTIONS ========== */
+/* =========================
+   CONTENT SECTIONS (media | text)
+   ========================= */
 .ux-case{
-  display:grid; grid-template-columns:1.5fr 1fr;
-  gap:clamp(var(--s4),5vw,var(--s6)); text-align:left;
-  margin:clamp(var(--s5),8vw,var(--s7)) 0; align-items:start;
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:clamp(var(--s4),5vw,var(--s6));
+  text-align:left;
+  margin:clamp(var(--s5),8vw,var(--s7)) 0;
+  align-items:start;
 }
-.ux-case.stack{ grid-template-columns:1fr; gap:var(--s4); }
-@media (max-width:960px){ .ux-case{ grid-template-columns:1fr; } }
 
-.ux-text h3{ font-family:"TASA Explorer", serif; font-weight:700; letter-spacing:.02em;
-  font-size:clamp(26px,2.6vw,34px); margin:0 0 var(--s3); }
+.ux-case.stack{ grid-template-columns:1fr; gap:var(--s4); }
+
+@media (max-width:960px){
+  .ux-case{ grid-template-columns:1fr; }
+}
+
+.ux-text h3{
+  font-family:"TASA Explorer", serif;
+  font-weight:700;
+  letter-spacing:.02em;
+  font-size:clamp(26px,2.6vw,34px);
+  margin:0 0 var(--s3);
+}
 .ux-text p{ color:#444; }
 .ux-text > * + *{ margin-top:var(--s3); }
 
-/* meta pills */
+/* =========================
+   META PILLS
+   ========================= */
 .meta{ list-style:none; padding:0; margin:0; }
-.meta.pills{ display:flex; flex-direction:column; gap:var(--s3); margin-top:var(--s3); }
-.meta.pills li{
-  list-style:none; display:inline-flex; align-items:center; gap:10px;
-  border:1px solid var(--accent); border-radius:9999px; padding:8px 20px; background:#fff;
-  font-family:"TASA Explorer", serif; font-style:italic; font-weight:400;
-  font-size:clamp(12px,1.2vw,4px); letter-spacing:.05em; word-spacing:.18em; color:var(--accent); line-height:1;
-}
-.meta.pills li strong{ font-style:italic; font-weight:400; letter-spacing:.02em; color:var(--accent); }
 
-/* ========== CAROUSEL ========== */
-.gallery-container{ position:relative; width:100%; height:460px; overflow:hidden; border-radius:16px; background:#fff; }
+.meta.pills{
+  display:flex;
+  flex-direction:column;
+  gap:var(--s3);
+  margin-top:var(--s3);
+}
+
+.meta.pills li{
+  list-style:none;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  border:1px solid var(--accent);
+  border-radius:9999px;
+  padding:10px 20px;
+  background:#fff;
+
+  font-family:"TASA Explorer", serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(12px,1.4vw,16px);
+  letter-spacing:.05em;
+  word-spacing:.18em;
+  color:var(--accent);
+  line-height:1;
+}
+.meta.pills li strong{
+  font-style:italic;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:var(--accent);
+}
+
+/* =========================
+   CAROUSEL (Events)
+   ========================= */
+.gallery-container{
+  position:relative;
+  width:100%;
+  height:460px;
+  overflow:hidden;
+  border-radius:16px;
+  background:#fff;
+}
+
 .gallery{
   --vpad: 24px;
   --hpad-left: 48px;
   --hpad-right: 48px;
-  display:flex; align-items:center; height:100%;
+
+  display:flex;
+  align-items:center;
+  height:100%;
   gap:24px;
   padding: var(--vpad) var(--hpad-right) var(--vpad) var(--hpad-left);
-  overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
 }
-
 .gallery::-webkit-scrollbar{ display:none; }
+
 .gallery img, .gallery video{
-  flex:0 0 auto; height:calc(100% - var(--vpad)*2); width:auto; max-width:100%;
-  object-fit:contain; background:#fff; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,.06);
+  flex:0 0 auto;
+  height:calc(100% - var(--vpad)*2);
+  width:auto;
+  max-width:100%;
+  object-fit:contain;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
   scroll-snap-align:center;
 }
+
+/* Arrows */
 .arrow{
-  position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border-radius:50%;
-  border:1px solid rgba(0,0,0,.15); background:rgba(255,255,255,.9); backdrop-filter:blur(2px);
-  color:#111; display:grid; place-items:center; font-size:22px; cursor:pointer; user-select:none;
-  box-shadow:0 2px 8px rgba(0,0,0,.08); transition:background .15s ease, transform .06s ease;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:42px; height:42px;
+  border-radius:50%;
+  border:1px solid rgba(0,0,0,.15);
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(2px);
+  color:#111;
+  display:grid; place-items:center;
+  font-size:22px;
+  cursor:pointer; user-select:none;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+  transition:background .15s ease, transform .06s ease;
 }
-.arrow.left{ left:8px; } .arrow.right{ right:8px; }
+.arrow.left{ left:8px; }
+.arrow.right{ right:8px; }
 .arrow:hover{ background:#fff; }
+
 @media (max-width:600px){
   .gallery-container{ height:340px; }
   .gallery{ --vpad:12px; gap:16px; padding:var(--vpad) 40px; }
 }
 
-/* ========== POSTER IMAGE (use-cases) ========== */
+/* Align Events gallery tighter to left edge to match sentence */
+#events .gallery{ --hpad-left: 4px; }
+#events .arrow.left{ left: 4px; }
+
+/* =========================
+   POSTERS / 2-UP GRID
+   ========================= */
 .poster{ margin:12px auto 40px; }
 .poster img{ display:block; width:100%; height:auto; }
-.poster--bleed{ margin-inline:calc(50% - 50vw); width:100vw; }
+
+.poster--bleed{
+  margin-inline:calc(50% - 50vw);
+  width:100vw;
+}
 .poster--bleed img{ width:100%; height:auto; }
 
-/* Force 2 posters side-by-side (and stack on small screens) */
+/* Two posters side-by-side (stack on small) */
 .ux-gallery.two-up{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
-  gap: var(--s4, 24px);
-  align-items: start;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(260px, 1fr));
+  gap:var(--s4);
+  align-items:start;
 }
-@media (max-width: 740px){
-  .ux-gallery.two-up{ grid-template-columns: 1fr; }
-}
-
-/* Posters: contain, not crop (optional) */
 .ux-gallery.two-up img{
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+  width:100%; height:auto; object-fit:contain;
+}
+@media (max-width:740px){
+  .ux-gallery.two-up{ grid-template-columns:1fr; }
 }
 
-#events .gallery{ --hpad-left: 4px; }  /* adjust 16→12→8 until it visually aligns */
-#events .arrow.left{ left: 4px; }
+/* =========================
+   LEARNING — clean + aligned with Events
+   ========================= */
+
+/* white band, no side padding so left edge = page wrapper edge (matches Events) */
+.band--learning{
+  background:#fff;
+  border-radius:16px;
+  padding: 0 0 clamp(56px, 8vw, 140px);  /* top=0 to sit tight under tabs */
+}
+
+/* text blocks after galleries */
+.learn-block{ margin: clamp(28px,4vw,56px) 0; }
+
+/* rail alignment (left/right) */
+.rail-left  { max-width: 680px; text-align:left; }
+.rail-right { max-width: 680px; margin-left:auto; text-align:left; }
+
+/* centered galleries (both) – slightly wider than before */
+.center-gallery .gallery-container,
+.poster--max{
+  max-width: min(1280px, 98vw);   /* was ~1120px — widened */
+  margin: 0 auto;                 /* centered */
+}
+
+/* unified gallery sizing for desktop screenshots */
+#learning .gallery-container{ height: 420px; }
+
+#learning .gallery{
+  --vpad: 20px;
+  --hpad-left: 16px;    /* small side padding so slides are visually wide */
+  --hpad-right: 16px;
+
+  display:flex;
+  align-items:center;
+  gap:24px;
+  padding: var(--vpad) var(--hpad-right) var(--vpad) var(--hpad-left);
+
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+#learning .gallery::-webkit-scrollbar{ display:none; }
+
+#learning .gallery > *{
+  flex:0 0 auto;
+  height: calc(100% - var(--vpad)*2);
+  width:auto;
+  scroll-snap-align: center;
+}
+
+#learning .gallery img{
+  object-fit: contain;
+  border-radius: 18px;
+  background:#fff;
+  box-shadow: 0 14px 36px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.05);
+}
+
+/* shared arrow positions (you already have .arrow base styles) */
+.center-gallery .arrow{ position:absolute; top:50%; transform:translateY(-50%); }
+.center-gallery .arrow.left{ left:8px; }
+.center-gallery .arrow.right{ right:8px; }
+
+/* big centered poster under “Design system” */
+.poster--max img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+
+/* guard against grid children blowing out columns */
+.ux-case > *{ min-width: 0; }
+
+/* mobile: let right rails stack flush left */
+@media (max-width:960px){
+  .rail-right{ margin-left:0; }
+}

@@ -1,210 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="design.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="design.css" />
   <title>Design</title>
 </head>
 <body>
   <div class="page-wrapper">
-   <!-- <h1 class="page-title">Design</h1> -->
-
+    <!-- Tabs -->
     <div class="tabs">
-  <button class="tab active" data-project="events">Events app</button>
-  <button class="tab" data-project="learning">Learning platform</button>
-  <button class="tab" data-project="co2">CO₂ prototype</button>
+      <button type="button" class="tab active" data-project="events">Events app</button>
+      <button type="button" class="tab" data-project="learning">Learning platform</button>
+      <button type="button" class="tab" data-project="co2">CO₂ prototype</button>
     </div>
 
-<!-- NEW PANELS -->
-<div id="panels">
-  <!-- EVENTS -->
-<section id="events" class="panel is-active">
-  <!-- One-sentence summary -->
-<p class="summary summary--fixed">
-  A mobile events app that<br>
-  shows what’s near you,<br>
-  how far it is, and when<br>
-  it starts — so you can decide fast.
-</p>
+    <!-- Panels -->
+    <div id="panels">
+      <!-- EVENTS -->
+      <section id="events" class="panel is-active">
 
+        <p class="summary summary--fixed">
+          A mobile events app that<br>
+          shows what’s near you,<br>
+          how far it is, and when<br>
+          it starts — so you can decide fast.
+        </p>
 
-  <!-- Screens gallery -->
-  <article class="ux-case">
-    <div class="gallery-container">
-  <button class="arrow left" id="prev" aria-label="Previous">&#8592;</button>
+        <article class="ux-case">
+          <!-- Carousel -->
+          <div class="gallery-container">
+            <button class="arrow left" id="prev" aria-label="Previous">&#8592;</button>
 
-  <div class="gallery" id="gallery">
-    <img src="design/start.png" alt="Start screen" loading="lazy">
-    <img src="design/get_started.png" alt="Get started" loading="lazy">
-    <img src="design/Sign_in_email_password.png" alt="Sign in — email & password" loading="lazy">
-    <img src="design/start_all_typed.png" alt="Start with typed fields" loading="lazy">
-    <img src="design/music.png" alt="Music category" loading="lazy">
-    <img src="design/5km.png" alt="5 km distance filter" loading="lazy">
-    <img src="design/choose_city.png" alt="Choose city" loading="lazy">
-    <img src="design/All_set.png" alt="All set confirmation" loading="lazy">
-    <img src="design/Discover_general.png" alt="Discover — general" loading="lazy">
-    <img src="design/Discover_3_events1.png" alt="Discover — 3 events" loading="lazy">
-    <img src="design/Discover_12May.png" alt="Discover by date 12 May" loading="lazy">
-    <img src="design/refine_search.png" alt="Refine search" loading="lazy">
-    <img src="design/Search.png" alt="Search screen" loading="lazy">
-    <img src="design/Within_your_reach.png" alt="Within your reach view" loading="lazy">
-    <img src="design/Venue_soma.png" alt="Venue — Soma" loading="lazy">
-    <img src="design/Event_details_patrick.png" alt="Event details — Patrick" loading="lazy">
-    <img src="design/Event_details_transition.png" alt="Event details transition" loading="lazy">
-    <img src="design/User_profile.png" alt="User profile" loading="lazy">
-    <img src="design/User.png" alt="User card" loading="lazy">
-  </div>
+            <div class="gallery" id="gallery">
+              <img src="design/start.png"                    alt="Start screen" loading="lazy">
+              <img src="design/get_started.png"              alt="Get started" loading="lazy">
+              <img src="design/Sign_in_email_password.png"   alt="Sign in — email & password" loading="lazy">
+              <img src="design/start_all_typed.png"          alt="Start with typed fields" loading="lazy">
+              <img src="design/music.png"                    alt="Music category" loading="lazy">
+              <img src="design/5km.png"                      alt="5 km distance filter" loading="lazy">
+              <img src="design/choose_city.png"              alt="Choose city" loading="lazy">
+              <img src="design/All_set.png"                  alt="All set confirmation" loading="lazy">
+              <img src="design/Discover_general.png"         alt="Discover — general" loading="lazy">
+              <img src="design/Discover_3_events1.png"       alt="Discover — 3 events" loading="lazy">
+              <img src="design/Discover_12May.png"           alt="Discover by date 12 May" loading="lazy">
+              <img src="design/refine_search.png"            alt="Refine search" loading="lazy">
+              <img src="design/Search.png"                   alt="Search screen" loading="lazy">
+              <img src="design/Within_your_reach.png"        alt="Within your reach view" loading="lazy">
+              <img src="design/Venue_soma.png"               alt="Venue — Soma" loading="lazy">
+              <img src="design/Event_details_patrick.png"    alt="Event details — Patrick" loading="lazy">
+              <img src="design/Event_details_transition.png" alt="Event details transition" loading="lazy">
+              <img src="design/User_profile.png"             alt="User profile" loading="lazy">
+              <img src="design/User.png"                     alt="User card" loading="lazy">
+            </div>
 
-  <button class="arrow right" id="next" aria-label="Next">&#8594;</button>
-</div>
+            <button class="arrow right" id="next" aria-label="Next">&#8594;</button>
+          </div>
 
-    <!-- About -->
-    <div class="ux-text">
-      <h3>~ About</h3>
-      <p>
-           Map-first by design: the app opens on the map so context is instant - where you are,
-    what’s around, and how soon it starts. Filters for date, distance and type are one tap away,
-    recommendations adapt to your interests, and a short onboarding gathers just the essentials
-    to personalize without friction.
-      </p>
-      <ul class="meta pills">
-        <li><strong>Role:</strong> UX/UI, prototyping, visual identity</li>
-        <li><strong>Artifacts:</strong> low-fi wireframes, user flows, use/edge cases</li>
-      </ul>
+          <!-- About -->
+          <div class="ux-text">
+            <h3>~ About</h3>
+            <p>
+              Map-first by design: the app opens on the map so context is instant—where you are,
+              what’s around, and how soon it starts. Filters for date, distance and type are one tap away,
+              recommendations adapt to your interests, and a short onboarding gathers just the essentials
+              to personalize without friction.
+            </p>
+            <ul class="meta pills">
+              <li><strong>Role:</strong> UX/UI, prototyping, visual identity</li>
+              <li><strong>Artifacts:</strong> low-fi wireframes, user flows, use/edge cases</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Use cases / edge cases -->
+        <article class="ux-case stack">
+          <div class="ux-text">
+            <h3>~ UX / UI</h3>
+            <p>Mapped key journeys and edge cases (venue closed, tickets sold out, location denied) to keep states predictable and resilient.</p>
+          </div>
+
+          <figure class="poster poster--bleed">
+            <img src="design/Use_cases_events_app.webp" alt="Use cases and edge cases overview" loading="lazy" decoding="async">
+          </figure>
+        </article>
+
+        <!-- Usability testing -->
+        <article class="ux-case posters">
+          <div class="ux-gallery two-up">
+            <figure>
+              <img src="design/Task_1_sign_up.png" alt="Task 1 — Sign up" loading="lazy" decoding="async">
+              <figcaption>Task 1 — Sign up</figcaption>
+            </figure>
+            <figure>
+              <img src="design/Task_2_onboarding.png" alt="Task 2 — Onboarding" loading="lazy" decoding="async">
+              <figcaption>Task 2 — Onboarding</figcaption>
+            </figure>
+          </div>
+
+          <div class="ux-text">
+            <h3>Usability testing</h3>
+            <p>I ran quick sessions on the core flows and collected feedback via Google Forms. The findings refined copy, filter clarity, and the map↔list handoff.</p>
+          </div>
+        </article>
+      </section>
+
+<section id="learning" class="panel">
+  <div class="band band--learning">
+
+    <!-- 1) small top text (left) -->
+    <p class="summary summary--fixed rail-left">
+      An internal learning platform<br>
+      for sharing curated resources<br>
+      and creating short courses to<br>
+      support faster onboarding.
+    </p>
+
+    <!-- 2) centered gallery #1 -->
+    <div class="center-gallery">
+      <div class="gallery-container" data-gallery="lp-hero">
+        <button class="arrow left" aria-label="Previous">←</button>
+        <div class="gallery">
+          <img src="design/LP/1_space.png" alt="Space">
+          <img src="design/LP/1_space_resources.png" alt="Resources">
+          <img src="design/LP/Resource_page.png" alt="Resource page">
+          <img src="design/LP/Add_resource.png" alt="Add resource">
+          <img src="design/LP/1_LP_overview.png" alt="LP overview">
+          <img src="design/LP/Add_alert.png" alt="Add alert">
+          <img src="design/LP/Add_to_path.png" alt="Add to path">
+          <img src="design/LP/Choose_section.png" alt="Choose section">
+          <img src="design/LP/Public_profile_page_hover_expanded.png" alt="Profile page">
+          <img src="design/LP/Make_resource_request.png" alt="Resource request">
+          <img src="design/LP/Introductory_LP_pressed.png" alt="Introductory LP">
+          <img src="design/LP/LP_collapsed.png" alt="LP collapsed">
+          <img src="design/LP/Feed.png" alt="Feed">
+          <img src="design/LP/Feed_personal.png" alt="Feed personal">
+          <img src="design/LP/Create_LP_add_content.png" alt="Create learning path">
+          <img src="design/LP/Create_LP_name.png" alt="Create LP name">
+        </div>
+        <button class="arrow right" aria-label="Next">→</button>
+      </div>
     </div>
-  </article>
 
-<!-- Use cases / edge cases -->
-<article class="ux-case stack">
-  <div class="ux-text">
-    <h3>~ UX / UI</h3>
-    <p>Mapped key journeys and edge cases (venue closed, tickets sold out, location denied)
-       to keep states predictable and resilient.</p>
-  </div>
-
-  <!-- full-width poster -->
-  <figure class="poster poster--bleed">
-    <img src="design/Use_cases_events_app.webp"
-         alt="Use cases and edge cases overview"
-         loading="lazy" decoding="async">
-  </figure>
-</article>
-
-
-<!-- Usability testing -->
-<!-- Usability testing -->
-<article class="ux-case posters">
-  <div class="ux-gallery two-up">
-    <figure>
-      <img src="design/Task_1_sign_up.png" alt="Task 1 — Sign up" loading="lazy" decoding="async">
-      <figcaption>Task 1 — Sign up</figcaption>
-    </figure>
-    <figure>
-      <img src="design/Task_2_onboarding.png" alt="Task 2 — Onboarding" loading="lazy" decoding="async">
-      <figcaption>Task 2 — Onboarding</figcaption>
-    </figure>
-  </div>
-
-  <div class="ux-text">
-    <h3>Usability testing</h3>
-    <p>I ran quick sessions on the core flows and collected feedback via Google Forms.
-       The findings refined copy, filter clarity, and the map↔list handoff.</p>
-  </div>
-</article>
-
-  <!-- LEARNING -->
-  <section id="learning" class="panel">
-    <article class="ux-case">
-      <div class="ux-gallery">
-        <figure>
-          <img src="assets/ux/learning/wireframe-01.jpg" alt="Learning platform low-fi lesson structure" loading="lazy">
-          <figcaption>Lesson structure</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/ux/learning/user-cases.jpg" alt="User cases" loading="lazy">
-          <figcaption>User cases</figcaption>
-        </figure>
-      </div>
-      <div class="ux-text">
-        <h3>Learning platform — structured lessons & progress</h3>
-        <p><strong>Problem:</strong> users get lost between overview and lesson flow.</p>
-        <p><strong>Approach:</strong> compared module overview vs linear flow to reduce decision fatigue.</p>
-        <ul class="meta">
-          <li><strong>Role:</strong> UX/UI</li>
-          <li><strong>Artifacts:</strong> low-fi wireframes, IA sketch, user flow</li>
-          <li><strong>Outcome:</strong> clearer navigation model</li>
+    <!-- 3) About (left) -->
+    <div class="learn-block">
+      <div class="ux-text rail-left">
+        <h3>About</h3>
+        <p>
+          I created the visual identity and UX/UI for an internal learning platform that helps
+          new joiners—and people moving between teams—get up to speed quickly. Colleagues can
+          contribute resources and create short courses; the community can review, comment,
+          and flag outdated items to keep quality high.
+        </p>
+        <p>
+          Before design, I interviewed people across departments to understand needs and
+          expectations. Those insights shaped navigation, contribution flows, and moderation
+          so the platform stays useful and trustworthy.
+        </p>
+        <ul class="meta pills">
+          <li><strong>Role:</strong> Identity, UX/UI, prototyping</li>
+          <li><strong>Artifacts:</strong> interviews, wireframes, flows, design system</li>
         </ul>
       </div>
-    </article>
-  </section>
+    </div>
 
-  <!-- CO2 -->
-  <section id="co2" class="panel">
-    <article class="ux-case">
-      <div class="ux-gallery">
-        <!-- Prefer MP4; replace with <img> if needed -->
-        <video src="assets/videos/co2-prototype.mp4" autoplay muted loop playsinline poster="assets/posters/co2-prototype.jpg"></video>
-        <figure>
-          <img src="assets/ux/co2/status-leds.jpg" alt="Status & error states lighting concept" loading="lazy">
-          <figcaption>Status & error states</figcaption>
-        </figure>
+    <!-- 4) Wireframes (right) -->
+    <div class="learn-block">
+      <div class="ux-text rail-right">
+        <h3>Wireframes</h3>
+        <p>Explored contribution, review, and learning flows to minimise friction and keep quality signals visible.</p>
       </div>
-      <div class="ux-text">
-        <h3>CO₂ prototype — reactor UI & status lighting</h3>
-        <p><strong>Problem:</strong> need fast state recognition during operation.</p>
-        <p><strong>Approach:</strong> designed touch UI and RGBW lighting behaviours for success/error.</p>
-        <ul class="meta">
-          <li><strong>Role:</strong> Display UI, lighting behaviour</li>
-          <li><strong>Stack:</strong> Raspberry Pi UI, Arduino Opta RS485, RGBW LEDs</li>
-          <li><strong>Outcome:</strong> testable interface + visual alerts</li>
-        </ul>
+    </div>
+
+    <!-- 5) centered gallery #2 (wireframes) -->
+    <div class="center-gallery">
+      <div class="gallery-container" data-gallery="lp-wires">
+        <button class="arrow left" aria-label="Previous">←</button>
+        <div class="gallery wires-gallery">
+          <img src="design/LP/wireframes/feed.png" alt="Wireframe — feed">
+          <img src="design/LP/wireframes/E2E_space.png" alt="Wireframe — space">
+          <img src="design/LP/wireframes/E2E_only_text.png" alt="Wireframe — only text">
+          <img src="design/LP/wireframes/E2E_space_activity.png" alt="Wireframe — activity">
+          <img src="design/LP/wireframes/E2E_space_recommendations.png" alt="Wireframe — recommendations">
+          <img src="design/LP/wireframes/Add_resource.png" alt="Wireframe — add resource">
+          <img src="design/LP/wireframes/Add_resource-1.png" alt="Wireframe — add resource 2">
+          <img src="design/LP/wireframes/dashboard.png" alt="Wireframe — dashboard">
+          <img src="design/LP/wireframes/Wireframe_.png" alt="Wireframe — misc">
+        </div>
+        <button class="arrow right" aria-label="Next">→</button>
       </div>
-    </article>
-  </section>
-</div>
+    </div>
+
+    <!-- 6) Design system (left) -->
+    <div class="learn-block">
+      <div class="ux-text rail-left">
+        <h3>Design system</h3>
+        <p>Foundations for typography, colour, cards, status chips, and contribution states.</p>
+      </div>
+    </div>
+
+    <!-- 7) (optional) single image centered -->
+    <div class="center-gallery">
+      <figure class="poster poster--max">
+        <img src="design/LP/design_system.png" alt="Design system">
+      </figure>
+    </div>
 
   </div>
+</section>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const track = document.getElementById('gallery');
-  const prev  = document.getElementById('prev');
-  const next  = document.getElementById('next');
-  const items = Array.from(track.children);
 
-  function scrollToIndex(i) {
-    const el = items[Math.max(0, Math.min(i, items.length - 1))];
-    const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
-    const target = el.offsetLeft - padLeft - (track.clientWidth - el.clientWidth) / 2;
-    track.scrollTo({ left: target, behavior: 'smooth' });
-  }
-  function currentIndex() {
-    const center = track.scrollLeft + track.clientWidth / 2;
-    let idx = 0, best = Infinity;
-    items.forEach((el, i) => {
-      const c = el.offsetLeft + el.offsetWidth / 2;
-      const d = Math.abs(c - center);
-      if (d < best) { best = d; idx = i; }
+      <!-- CO₂ (unchanged) -->
+      <section id="co2" class="panel">
+        <article class="ux-case">
+          <div class="ux-gallery">
+            <video src="assets/videos/co2-prototype.mp4" autoplay muted loop playsinline poster="assets/posters/co2-prototype.jpg"></video>
+            <figure>
+              <img src="assets/ux/co2/status-leds.jpg" alt="Status & error states lighting concept" loading="lazy">
+              <figcaption>Status & error states</figcaption>
+            </figure>
+          </div>
+          <div class="ux-text">
+            <h3>CO₂ prototype — reactor UI & status lighting</h3>
+            <p><strong>Problem:</strong> need fast state recognition during operation.</p>
+            <p><strong>Approach:</strong> designed touch UI and RGBW lighting behaviours for success/error.</p>
+            <ul class="meta">
+              <li><strong>Role:</strong> Display UI, lighting behaviour</li>
+              <li><strong>Stack:</strong> Raspberry Pi UI, Arduino Opta RS485, RGBW LEDs</li>
+              <li><strong>Outcome:</strong> testable interface + visual alerts</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+
+    …
+  <!-- JS: carousels (Events + Learning hero + Wireframes) -->
+  <script>
+  // ⬇️ paste the multi-carousel initializer here
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.gallery-container').forEach(container => {
+      const track = container.querySelector('.gallery');
+      if (!track) return;
+      let prev = container.querySelector('.arrow.left');
+      let next = container.querySelector('.arrow.right');
+      if (!prev) { prev = document.createElement('button'); prev.className = 'arrow left'; prev.setAttribute('aria-label','Previous'); prev.innerHTML = '&#8592;'; container.prepend(prev); }
+      if (!next) { next = document.createElement('button'); next.className = 'arrow right'; next.setAttribute('aria-label','Next'); next.innerHTML = '&#8594;'; container.append(next); }
+      const items = Array.from(track.children);
+      function currentIndex(){
+        const center = track.scrollLeft + track.clientWidth / 2;
+        let idx = 0, best = Infinity;
+        items.forEach((el, i) => {
+          const c = el.offsetLeft + el.offsetWidth / 2;
+          const d = Math.abs(c - center);
+          if (d < best){ best = d; idx = i; }
+        });
+        return idx;
+      }
+      function scrollToIndex(i){
+        const clamped = Math.max(0, Math.min(i, items.length - 1));
+        const el = items[clamped];
+        const padLeft = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+        const target = el.offsetLeft - padLeft - (track.clientWidth - el.clientWidth) / 2;
+        track.scrollTo({ left: target, behavior: 'smooth' });
+      }
+      prev.addEventListener('click', () => scrollToIndex(currentIndex() - 1));
+      next.addEventListener('click', () => scrollToIndex(currentIndex() + 1));
+      track.tabIndex = 0;
+      track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft'){ e.preventDefault(); scrollToIndex(currentIndex() - 1); }
+        if (e.key === 'ArrowRight'){ e.preventDefault(); scrollToIndex(currentIndex() + 1); }
+      });
     });
-    return idx;
-  }
-  prev.addEventListener('click', () => scrollToIndex(currentIndex() - 1));
-  next.addEventListener('click', () => scrollToIndex(currentIndex() + 1));
-  track.tabIndex = 0;
-  track.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); scrollToIndex(currentIndex() - 1); }
-    if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(currentIndex() + 1); }
   });
-});
-</script>
+  </script>
+
+  <!-- JS: tabs switcher (leave this as you have it) -->
+  <script>
+  (() => {
+    const tabs = document.querySelectorAll('.tab[data-project]');
+    const panels = document.querySelectorAll('#panels .panel');
+    function show(id){
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.project === id));
+      panels.forEach(p => p.classList.toggle('is-active', p.id === id));
+      history.replaceState(null, '', '#' + id);
+    }
+    tabs.forEach(t => t.addEventListener('click', (e) => { e.preventDefault(); show(t.dataset.project); }));
+    const initial = (location.hash || '#events').slice(1);
+    show(['events','learning','co2'].includes(initial) ? initial : 'events');
+  })();
+  </script>
+</body>
+</html>
 
 
 </body>
