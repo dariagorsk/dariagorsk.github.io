@@ -366,3 +366,44 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 @media (max-width:960px){
   .rail-right{ margin-left:0; }
 }
+
+/* --- Design-system flow wall ------------------------------ */
+.ds-flow{
+  display: flex;
+  flex-wrap: wrap;          /* wrap to next row */
+  gap: 24px;                /* 24px between items */
+  align-items: flex-start;  /* keep tops aligned */
+}
+
+/* Tile wrapper (optional caption later) */
+.ds-tile{
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  width: max-content;       /* hug content */
+  max-width: 100%;
+}
+
+/* Clickable sprite that NEVER scales weirdly */
+.ds-sprite{
+  --w: 115;                 /* set per item in HTML */
+  width: calc(var(--w) * 1px);
+  height: auto;             /* let height follow image */
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Proportional scaling; no distortion */
+.ds-sprite img{
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+

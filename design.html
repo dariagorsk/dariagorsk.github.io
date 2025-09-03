@@ -198,21 +198,61 @@
     </div>
 
     <!-- 6) Design system (left) -->
-    <div class="learn-block">
-      <div class="ux-text rail-left">
-        <h3>Design system</h3>
-        <p>Foundations for typography, colour, cards, status chips, and contribution states.</p>
-      </div>
-    </div>
-
-    <!-- 7) (optional) single image centered -->
-    <div class="center-gallery">
-      <figure class="poster poster--max">
-        <img src="design/LP/design_system.png" alt="Design system">
-      </figure>
-    </div>
-
+<div class="learn-block">
+  <div class="ux-text rail-left">
+    <h3>Design system</h3>
+    <p>Foundations for typography, colour, cards, status chips, and contribution states.</p>
   </div>
+</div>
+
+<!-- Interactive, exact-size components -->
+<section class="ds-flow">
+  <!-- Primary button (115px wide) -->
+  <figure class="ds-tile">
+    <button class="ds-sprite"
+            style="--w:115"
+            data-frames="design/LP/design_system/button_default_primary.png,
+                         design/LP/design_system/button_hover_primary.png,
+                         design/LP/design_system/button_pressed_primary.png,
+                         design/LP/design_system/button_disabled_primary.png"
+            aria-label="Primary button">
+    </button>
+  </figure>
+
+  <!-- Secondary button -->
+  <figure class="ds-tile">
+    <button class="ds-sprite"
+            style="--w:115"
+            data-frames="design/LP/design_system/button_default_color.png,
+                         design/LP/design_system/button_hover_color.png,
+                         design/LP/design_system/button_pressed_color.png"
+            aria-label="Secondary button">
+    </button>
+  </figure>
+
+  <!-- Project card (make sure these frames are the PROJECT card images) -->
+  <figure class="ds-tile">
+    <button class="ds-sprite"
+            style="--w:300"  
+            data-frames="design/LP/design_system/project_card_default.png,
+                         design/LP/design_system/project_card_hover.png,
+                         design/LP/design_system/project_card_pressed.png"
+            aria-label="Project card">
+    </button>
+  </figure>
+
+  <!-- LP card (different asset set, different width) -->
+  <figure class="ds-tile">
+    <button class="ds-sprite"
+            style="--w:348"
+            data-frames="design/LP/design_system/LP_card_main.png,
+                         design/LP/design_system/LP_card_hover.png,
+                         design/LP/design_system/LP_card_completed.png"
+            aria-label="Learning path card">
+    </button>
+  </figure>
+
+  <!-- Add more items here, they’ll line up with 24px gaps and wrap -->
 </section>
 
 
@@ -298,8 +338,28 @@
     show(['events','learning','co2'].includes(initial) ? initial : 'events');
   })();
   </script>
-</body>
-</html>
+
+<script>
+/* Minimal sprite-cycler: click to advance to the next frame */
+(function () {
+  document.querySelectorAll('.ds-sprite').forEach(btn => {
+    const frames = (btn.dataset.frames || "").split(',').map(s => s.trim()).filter(Boolean);
+    if (!frames.length) return;
+
+    const img = document.createElement('img');
+    img.decoding = 'async';
+    img.loading = 'lazy';
+    img.src = frames[0];
+    img.alt = btn.getAttribute('aria-label') || '';
+    btn.appendChild(img);
+
+    let i = 0;
+    btn.addEventListener('mouseenter', () => { if (frames[1]) img.src = frames[1]; });
+    btn.addEventListener('mouseleave', () => { img.src = frames[i]; });
+    btn.addEventListener('click', () => { i = (i + 1) % frames.length; img.src = frames[i]; });
+  });
+})();
+</script>
 
 
 </body>
