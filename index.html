@@ -8,12 +8,29 @@
 </head>
 <body>
   <div class="page-wrapper">
-    <img class="illustration" src="css/me_illustration.png" alt="Illustration of Daria" />
+<a class="hero-ill illustration" href="#">
+  <img class="hero-ill__static" src="css/me_illustration.png" alt="Illustration of Daria">
+  <video class="hero-ill__gif" muted loop playsinline preload="metadata" poster="css/me_illustration.png">
+    <source src="animations/animated_me.mp4"  type="video/mp4">
+    <source src="animations/dream-8.webm" type="video/webm">
+  </video>
+</a>
+
 
     <a href="animations.html" class="nav animations">animations</a>
     <a href="#" class="nav content">content creation</a>
     <a href="upcycling.html" class="nav upcycling">upcycling</a>
     <a href="design.html" class="nav design">ux/ui design</a>
   </div>
+
+<script>
+const v = document.querySelector('.hero-ill video');
+const host = v.closest('.hero-ill');
+host.addEventListener('mouseenter', () => v.play());
+host.addEventListener('mouseleave', () => { v.pause(); v.currentTime = 0; });
+host.addEventListener('focusin',  () => v.play());
+host.addEventListener('focusout', () => { v.pause(); v.currentTime = 0; });
+</script>
+
 </body>
 </html>

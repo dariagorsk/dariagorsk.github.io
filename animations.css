@@ -1,150 +1,70 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background: white;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
+/* reset */
+* { margin:0; padding:0; box-sizing:border-box; }
 
-  /* Body font for the whole site */
+/* type */
 html, body {
-  font-family: "Crimson Text", Georgia, Cambria, "Times New Roman", serif;
-  font-weight: 400;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background:#fff;
+  height:100%;
+  font-family:"Crimson Text", Georgia, Cambria, "Times New Roman", serif;
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-/* Keep your headings/tabs in TASA Explorer (optional, since you liked that look) */
-.page-title,
-.ux-text h3,
-.tab {  /* your nav tabs */
+/* frame */
+.page-wrapper{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 6vw 10vh;
+}
+
+/* title */
+.title{
   font-family: "TASA Explorer", serif;
+  font-weight: 400;
+  font-size: clamp(40px, 8vw, 72px);
+  color:#000;
+  margin-bottom: clamp(24px, 4vw, 48px);
 }
 
-  
-  .page-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 200px;
-  }
-  
-  .title {
-    position: absolute;
-    top: 60px;
-    left: 791px;
-    font-size: 70px;
-    color: black;
-    font-weight: 400;
-  }
-  
-  .anim-img {
-    position: absolute;
-  }
-  
-  .dude {
-    width: 323px;
-    top: 230px;
-    left: 183px;
-  }
-  
-  .finger {
-    width: 316px;
-    top: 1100px;
-    left: 796px;
-  }
-  
-  .babayaga {
-    width: 639px;
-    height: auto;
-    top: 1900px;
-    left: 183px;
-    margin-bottom: 10px;
-  }
-  
+/* responsive grid */
+.anim-grid{
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 24px);
+  align-items: start;
+}
 
-  .drob {
-    width: 380px;
-    top: 2705px;
-    left: 796px;
-  }
+/* tiles */
+.anim{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
 
-  img, h1 {
-    display: block;
-    border: none;
-  }
+/* width helpers (desktop, 12 columns) */
+.w1{grid-column: span 1;}
+.w2{grid-column: span 2;}
+.w3{grid-column: span 3;}
+.w4{grid-column: span 4;}
+.w5{grid-column: span 5;}
+.w6{grid-column: span 6;}
+.w7{grid-column: span 7;}
+.w8{grid-column: span 8;}
+/* (you can add up to w12 if you need full width) */
 
-  html, body {
-    background: white;
-    height: 100%;
-  }
-  
-  @media (max-width: 768px) {
-    .title {
-      top: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 50px;
-    }
-  
-    .dude,
-    .finger,
-    .babayaga,
-    .drob {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  
-    .dude {
-      width: 250px;
-      top: 180px;
-    }
-  
-    .finger {
-      width: 260px;
-      top: 950px;
-    }
-  
-    .babayaga {
-      width: 500px;
-      top: 1650px;
-    }
-  
-    .drob {
-      width: 320px;
-      top: 2350px;
-    }
-  }
+/* tablet: 8 columns */
+@media (max-width: 1024px){
+  .anim-grid{ grid-template-columns: repeat(8, minmax(0,1fr)); }
+  .w6{grid-column: span 8;}  /* make wide items full-width if needed */
+  .w8{grid-column: span 8;}
+}
 
-  @media (max-width: 480px) {
-    .title {
-      top: 30px;
-      font-size: 36px;
-    }
-  
-    .dude {
-      width: 200px;
-      top: 160px;
-    }
-  
-    .finger {
-      width: 220px;
-      top: 800px;
-    }
-  
-    .babayaga {
-      width: 380px;
-      top: 1450px;
-    }
-  
-    .drob {
-      width: 280px;
-      top: 2000px;
-    }
-  }
-  
+/* mobile: 2 columns */
+@media (max-width: 640px){
+  .anim-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  /* everything spans both columns by default on very small screens */
+  .anim{ grid-column: span 2; }
+}

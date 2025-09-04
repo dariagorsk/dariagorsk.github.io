@@ -380,6 +380,27 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 /* guard against grid children blowing out columns */
 .ux-case > *{ min-width: 0; }
 
+/* Usability section layout */
+.ux-case.posters{
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;         /* gallery | text on desktop */
+  grid-template-areas: "gallery text";
+  align-items: start;
+  gap: var(--s4);
+}
+.ux-case.posters .ux-gallery{ grid-area: gallery; }
+.ux-case.posters .ux-text{    grid-area: text; }
+
+/* On mobile: text first, then gallery */
+@media (max-width: 960px){
+  .ux-case.posters{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "text"
+      "gallery";
+  }
+}
+
 /* mobile: let right rails stack flush left */
 @media (max-width:960px){
   .rail-right{ margin-left:0; }

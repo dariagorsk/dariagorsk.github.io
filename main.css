@@ -186,3 +186,33 @@ body {
   }
 }
 
+/* DO NOT set a width on .hero-ill – let .illustration control size/position */
+.hero-ill{
+  position: relative;   /* piggybacks on whatever .illustration already sets */
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* the media should fill the old illustration box */
+.hero-ill img,
+.hero-ill video{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* stack the video on top and fade it in/out */
+.hero-ill__gif{
+  position: absolute; inset: 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity .18s ease;
+}
+.hero-ill:hover .hero-ill__gif,
+.hero-ill:focus-visible .hero-ill__gif{ opacity: 1; }
+.hero-ill:hover .hero-ill__static,
+.hero-ill:focus-visible .hero-ill__static{ opacity: 0; }
+
+/* (optional) tiny grow to match your nav hover; remove if you don’t want movement */
+.hero-ill{ transition: transform .18s ease; }
+.hero-ill:hover,
+.hero-ill:focus-visible{ transform: scale(1.03); }
