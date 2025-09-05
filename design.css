@@ -10,6 +10,14 @@
   --cursor-link: url("design/lipstick_cursor24.png") 6 2, pointer;
 }
 
+/* Retina cursor swap */
+@media (min-resolution:2dppx){
+  :root{
+    --cursor: url("design/lipstick_cursor_retina.png") 12 4, auto;
+    --cursor-link: url("design/lipstick_cursor_retina.png") 12 4, pointer;
+  }
+}
+
 /* =========================
    BASE
    ========================= */
@@ -27,13 +35,6 @@ html,body{
 
 html, body, *{ cursor:var(--cursor); }
 a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
-
-@media (min-resolution:2dppx){
-  :root{
-    --cursor: url("design/lipstick_cursor_retina.png") 12 4, auto;
-    --cursor-link: url("design/lipstick_cursor_retina.png") 12 4, pointer;
-  }
-}
 
 /* =========================
    PAGE FRAME
@@ -73,7 +74,6 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   color:#101010;
 
   opacity:.75;
-  cursor:pointer;
   transition:opacity .2s ease, transform .05s ease;
 }
 
@@ -90,8 +90,6 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 
 .tab:hover{ opacity:1; transform:translateY(-1px); }
 .tab:hover::after{ transform:scaleX(1); }
-
-/* keep underline visible when pressed, focused, or selected */
 .tab:active, .tab:focus-visible, .tab.active{ opacity:1; }
 .tab:active::after, .tab:focus-visible::after, .tab.active::after{ transform:scaleX(1); }
 
@@ -100,42 +98,77 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   .tab::after{ bottom:-6px; }
 }
 
+/* 3-column grid: [arrow] [centered tabs] [spacer same width as arrow] */
+.masthead{
+  display: grid;
+  grid-template-columns: 40px 1fr 40px; /* match back-btn size */
+  column-gap: clamp(16px, 3vw, 32px);
+  align-items: start;
+  margin-bottom: clamp(48px, 7vw, 96px);
+  text-align: left;
+}
+
+.back-btn{
+  grid-column: 1;
+  display: inline-grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.9);
+  color: #111;
+  text-decoration: none;
+  transition: background .15s ease, transform .06s ease, border-color .15s ease;
+}
+.back-btn:hover,
+.back-btn:focus-visible{ background:#fff; border-color:rgba(0,0,0,.2); }
+.back-btn:active{ transform:translateY(1px); }
+
+/* Tabs sit in the middle column and are centered inside it */
+.masthead .tabs{
+  grid-column: 2;
+  display: flex;
+  justify-content: center;   /* <— keeps tabs centered */
+  align-items: center;
+  gap: clamp(24px, 8vw, 160px);
+  margin: 0;                 /* spacing handled by .masthead */
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Spacer mirrors the back button to keep symmetry */
+.masthead-spacer{
+  grid-column: 3;
+  width: 40px; height: 40px;
+}
+
+/* Mobile: stack arrow above tabs */
+@media (max-width: 640px){
+  .masthead{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    row-gap: 12px;
+  }
+  .back-btn{ grid-column: 1; justify-self: start; }
+  .masthead .tabs{ grid-column: 1; }
+  .masthead-spacer{ display: none; }
+}
+
+
+
 /* =========================
    PANELS
    ========================= */
 .panel{ display:none; }
 .panel.is-active{ display:block; }
 
-/* Sentence under tabs (both sections share this) */
+/* =========================
+   SHARED TEXT
+   ========================= */
 .summary{
-  max-width:100ch;
+  max-width:60ch;
   text-align:left;
   margin:var(--s3) 0 var(--s6);
-}
-
-.summary.summary--fixed{
-  max-width:none;            /* you control wrapping with <br> */
-  text-align:left;
-  line-height:1.55;
-  margin:var(--s7) 0 var(--s6);
-}
-
-/* =========================
-   CONTENT SECTIONS (media | text)
-   ========================= */
-.ux-case{
-  display:grid;
-  grid-template-columns:1.5fr 1fr;
-  gap:clamp(var(--s4),5vw,var(--s6));
-  text-align:left;
-  margin:clamp(var(--s5),8vw,var(--s7)) 0;
-  align-items:start;
-}
-
-.ux-case.stack{ grid-template-columns:1fr; gap:var(--s4); }
-
-@media (max-width:960px){
-  .ux-case{ grid-template-columns:1fr; }
 }
 
 .ux-text h3{
@@ -147,6 +180,23 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 }
 .ux-text p{ color:#444; }
 .ux-text > * + *{ margin-top:var(--s3); }
+
+/* =========================
+   GRID: media | text
+   ========================= */
+.ux-case{
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:clamp(var(--s4),5vw,var(--s6));
+  text-align:left;
+  margin:clamp(var(--s5),8vw,var(--s7)) 0;
+  align-items:start;
+}
+.ux-case.stack{ grid-template-columns:1fr; gap:var(--s4); }
+
+@media (max-width:960px){
+  .ux-case{ grid-template-columns:1fr; }
+}
 
 /* =========================
    META PILLS
@@ -161,16 +211,13 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 }
 
 .meta.pills li{
-  list-style:none;
   display:inline-flex;
   align-items:center;
   gap:10px;
-
   border:1px solid var(--accent);
   border-radius:9999px;
   padding:10px 20px;
   background:#fff;
-
   font-family:"TASA Explorer", serif;
   font-style:italic;
   font-weight:400;
@@ -188,7 +235,7 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 }
 
 /* =========================
-   CAROUSEL (Events)
+   CAROUSEL
    ========================= */
 .gallery-container{
   position:relative;
@@ -209,7 +256,6 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   height:100%;
   gap:24px;
   padding: var(--vpad) var(--hpad-right) var(--vpad) var(--hpad-left);
-
   overflow-x:auto;
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
@@ -242,31 +288,17 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   color:#111;
   display:grid; place-items:center;
   font-size:22px;
-  cursor:pointer; user-select:none;
   box-shadow:0 2px 8px rgba(0,0,0,.08);
   transition:background .15s ease, transform .06s ease;
+  z-index:20;
 }
 .arrow.left{ left:8px; }
 .arrow.right{ right:8px; }
 .arrow:hover{ background:#fff; }
 
-/* --- Make gallery arrows always clickable above the slides --- */
-.gallery-container { position: relative; }
-
-.gallery { position: relative; z-index: 1; }
-.gallery img,
-.gallery video { position: relative; z-index: 1; }
-
-.gallery-container .arrow {
-  position: absolute;          /* you already have this */
-  z-index: 20;                 /* <-- put arrows on top */
-  pointer-events: auto;        /* just in case */
-}
-
-/* If you have gradient edge fades, make them ignore clicks */
+/* If you add gradient edge fades, ignore clicks on them */
 .gallery-container::before,
 .gallery-container::after { pointer-events: none; }
-
 
 @media (max-width:600px){
   .gallery-container{ height:340px; }
@@ -289,88 +321,103 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 }
 .poster--bleed img{ width:100%; height:auto; }
 
-/* Two posters side-by-side (stack on small) */
 .ux-gallery.two-up{
   display:grid;
   grid-template-columns:repeat(2, minmax(260px, 1fr));
   gap:var(--s4);
   align-items:start;
 }
-.ux-gallery.two-up img{
-  width:100%; height:auto; object-fit:contain;
-}
+.ux-gallery.two-up img{ width:100%; height:auto; object-fit:contain; }
 @media (max-width:740px){
   .ux-gallery.two-up{ grid-template-columns:1fr; }
 }
 
+/* More space between screenshot and conclusion */
+.survey-figure {
+  /* was: margin: clamp(28px, 4vw, 36px) 0 clamp(24px, 3.5vw, 32px); */
+  margin: clamp(32px, 5vw, 48px) 0 clamp(36px, 6vw, 64px);
+}
+
+/* Reusable pill (matches your .meta.pills li look) */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--accent);
+  border-radius:9999px;
+  padding:10px 20px;
+  background:#fff;
+
+  font-family:"TASA Explorer", serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(12px,1.4vw,16px);
+  letter-spacing:.05em;
+  word-spacing:.18em;
+  color:var(--accent);
+  line-height:1;
+  white-space:nowrap;
+}
+
+/* make the pill-heading sit nicely above text */
+.survey-conclusion .pill.pill-heading{
+  margin-bottom: .9rem;        /* space under the pill title */
+}
+
+/* optional: a compact label pill to prefix the result line */
+.pill.pill-label{
+  padding:8px 14px;
+  font-size: clamp(12px,1.2vw,15px);
+  margin-right: .6rem;
+  vertical-align: middle;
+}
 
 
 /* =========================
-   LEARNING — clean + aligned with Events
+   LEARNING
    ========================= */
-
-/* white band, no side padding so left edge = page wrapper edge (matches Events) */
 .band--learning{
   background:#fff;
   border-radius:16px;
-  padding: 0 0 clamp(56px, 8vw, 140px);  /* top=0 to sit tight under tabs */
+  padding: 0 0 clamp(56px, 8vw, 140px); /* top=0 to sit tight under tabs */
 }
 
-/* text blocks after galleries */
 .learn-block{ margin: clamp(28px,4vw,56px) 0; }
 
-/* rail alignment (left/right) */
 .rail-left  { max-width: 680px; text-align:left; }
 .rail-right { max-width: 680px; margin-left:auto; text-align:left; }
 
-/* centered galleries (both) – slightly wider than before */
+/* centered galleries */
 .center-gallery .gallery-container,
 .poster--max{
-  max-width: min(1280px, 98vw);   /* was ~1120px — widened */
-  margin: 0 auto;                 /* centered */
+  max-width: min(1280px, 98vw);
+  margin: 0 auto;
 }
 
-/* unified gallery sizing for desktop screenshots */
 #learning .gallery-container{ height: 420px; }
-
 #learning .gallery{
   --vpad: 20px;
-  --hpad-left: 16px;    /* small side padding so slides are visually wide */
+  --hpad-left: 16px;
   --hpad-right: 16px;
-
-  display:flex;
-  align-items:center;
   gap:24px;
   padding: var(--vpad) var(--hpad-right) var(--vpad) var(--hpad-left);
-
   overflow-x:auto;
   scroll-snap-type:x mandatory;
   scroll-behavior:smooth;
   -webkit-overflow-scrolling: touch;
 }
-
 #learning .gallery::-webkit-scrollbar{ display:none; }
-
-#learning .gallery > *{
-  flex:0 0 auto;
-  height: calc(100% - var(--vpad)*2);
-  width:auto;
-  scroll-snap-align: center;
-}
-
+#learning .gallery > *{ flex:0 0 auto; height: calc(100% - var(--vpad)*2); width:auto; scroll-snap-align:center; }
 #learning .gallery img{
   object-fit: contain;
   border-radius: 18px;
   background:#fff;
   box-shadow: 0 14px 36px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.05);
 }
-
-/* shared arrow positions (you already have .arrow base styles) */
 .center-gallery .arrow{ position:absolute; top:50%; transform:translateY(-50%); }
 .center-gallery .arrow.left{ left:8px; }
 .center-gallery .arrow.right{ right:8px; }
 
-/* big centered poster under “Design system” */
 .poster--max img{
   display:block;
   width:100%;
@@ -382,10 +429,10 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 /* guard against grid children blowing out columns */
 .ux-case > *{ min-width: 0; }
 
-/* Usability section layout */
+/* Usability section layout when paired with posters text */
 .ux-case.posters{
   display: grid;
-  grid-template-columns: 1.2fr 1fr;         /* gallery | text on desktop */
+  grid-template-columns: 1.2fr 1fr;
   grid-template-areas: "gallery text";
   align-items: start;
   gap: var(--s4);
@@ -393,53 +440,39 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 .ux-case.posters .ux-gallery{ grid-area: gallery; }
 .ux-case.posters .ux-text{    grid-area: text; }
 
-/* On mobile: text first, then gallery */
 @media (max-width: 960px){
   .ux-case.posters{
     grid-template-columns: 1fr;
-    grid-template-areas:
-      "text"
-      "gallery";
+    grid-template-areas: "text" "gallery";
   }
-}
-
-/* mobile: let right rails stack flush left */
-@media (max-width:960px){
   .rail-right{ margin-left:0; }
 }
 
 /* --- Design-system flow wall ------------------------------ */
 .ds-flow{
   display: flex;
-  flex-wrap: wrap;          /* wrap to next row */
-  gap: 24px;                /* 24px between items */
-  align-items: flex-start;  /* keep tops aligned */
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-start;
 }
-
-/* Tile wrapper (optional caption later) */
 .ds-tile{
   display: inline-flex;
   flex-direction: column;
   gap: 8px;
-  width: max-content;       /* hug content */
+  width: max-content;
   max-width: 100%;
 }
-
-/* Clickable sprite that NEVER scales weirdly */
 .ds-sprite{
-  --w: 115;                 /* set per item in HTML */
+  --w: 115;                 /* set per item inline */
   width: calc(var(--w) * 1px);
-  height: auto;             /* let height follow image */
+  height: auto;
   display: inline-block;
   padding: 0;
   border: 0;
   background: transparent;
   line-height: 0;
-  cursor: pointer;
   user-select: none;
 }
-
-/* Proportional scaling; no distortion */
 .ds-sprite img{
   display: block;
   width: 100%;
@@ -448,13 +481,14 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   image-rendering: crisp-edges;
 }
 
-/* CO₂: centered gallery just like Learning, with comfy height */
+/* =========================
+   CO₂
+   ========================= */
 #co2 .center-gallery .gallery-container{
   max-width: min(1280px, 98vw);
   margin: 0 auto;
 }
-
-#co2 .gallery-container{ height: 420px; }          /* tune if your PNGs are taller/shorter */
+#co2 .gallery-container{ height: 420px; }
 #co2 .gallery{
   --vpad: 20px;
   --hpad-left: 24px;
@@ -462,10 +496,42 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   padding: var(--vpad) var(--hpad-right) var(--vpad) var(--hpad-left);
   gap: 24px;
 }
-
 #co2 .gallery img{
   object-fit: contain;
   border-radius: 14px;
   background: #fff;
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
 }
+
+/* =========================
+   USABILITY (scoped)
+   ========================= */
+.ux-usability { 
+  margin: clamp(28px, 6vw, 72px) 0; 
+  text-align: left; 
+}
+.survey-figure { 
+  margin: clamp(28px, 4vw, 36px) 0 clamp(24px, 3.5vw, 32px); 
+  text-align: left; 
+}
+.survey-figure img {
+  max-width: 100%; height: auto; display: block;
+  border-radius: 12px; border: 1px solid #e5e7eb;
+}
+.survey-figure figcaption {
+  margin-top: .6rem; font-size: .95rem; line-height: 1.6; opacity: .8; text-align:left;
+}
+.survey-conclusion {
+  margin-top: clamp(20px, 3.5vw, 28px);
+  padding-top: .75rem; border-top: 1px solid #eee;
+  max-width: 72ch;
+  text-align:left;
+}
+.survey-conclusion h4 { margin: 0 0 .9rem; line-height: 1.25; font-weight: 600; letter-spacing: .2px; }
+.survey-conclusion p  { margin: 0 0 1rem; line-height: 1.75; }
+.survey-conclusion ul { margin: 0 0 1rem 1.25rem; padding: 0; }
+.survey-conclusion li { margin: 0 0 .7rem; line-height: 1.7; }
+
+/* Spacing before/after */
+.posters { margin-bottom: clamp(32px, 5vw, 56px); }
+.ux-usability + * { margin-top: clamp(28px, 6vw, 72px); }
