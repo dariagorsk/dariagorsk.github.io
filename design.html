@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+<!-- Fonts (combined) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:ital,wght@0,400;0,600;0,700;1,400;1,600,1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
   <!-- Styles -->
   <link rel="stylesheet" href="design.css" />
   <title>Design</title>
@@ -109,6 +109,119 @@
             <p>I ran quick sessions on the core flows and collected feedback via Google Forms. The findings refined copy, filter clarity, and the map↔list handoff.</p>
           </div>
         </article>
+        <section id="usability-testing">
+  <h3>Onboarding flow (survey results)</h3>
+
+  <figure class="survey-figure">
+    <a href="design/usability/survey_1.png" target="_blank" rel="noopener">
+      <img
+        src="design/usability/survey_1.png"
+        alt="Survey results table: onboarding flow feedback (clarity, difficulty, skips, and comments)"
+        loading="lazy"
+        width="1400"
+        height="900"
+      />
+    </a>
+  </figure>
+</section>
+
+<style>
+  .survey-figure{margin:1.5rem 0}
+  .survey-figure img{max-width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb;display:block}
+  .survey-figure figcaption{font-size:.9rem;opacity:.75;margin-top:.5rem}
+</style>
+
+<section id="usability-conclusion" class="survey-conclusion">
+  <h4>What changed in the final onboarding screens</h4>
+  <p>
+    From 9 quick responses we highlighted few problematic points: progress clarity,<br>
+    error/validation messaging, an overloaded interests screen, privacy hesitations for location,<br>
+    a few bugs, and a desire for smoother motion. We delivered the following improvements:<br>
+  </p>
+  <ul>
+    <li><strong>Progress & pacing:</strong> Added a clear 3-step progress indicator.</li>
+    <li><strong>Interests screen:</strong> Grouped options, added “All” interests to choose option to reduce overwhelm.</li>
+    <li><strong>Motion polish:</strong> Subtle transitions to make the flow feel smoother.</li>
+    <li><strong>Quality fixes:</strong> Fixed reposted bugs.</li>
+  </ul>
+  <p><strong>Outcome:</strong> Users now know where they are in the flow, what’s required, and why certain data is requested; errors are clear and immediate; the path feels lighter and smoother.</p>
+</section>
+
+<!-- put this next to your existing styles or below them -->
+<style>
+  /* screenshot block */
+  .survey-figure { margin: 1.5rem 0; text-align: left; }
+  .survey-figure img { display: block; margin: 0; } /* cancel any auto-centering */
+  .survey-figure figcaption { text-align: left; }
+
+  /* conclusion block */
+  .survey-conclusion { margin-top: 1rem; text-align: left; }
+  .survey-conclusion h4,
+  .survey-conclusion p,
+  .survey-conclusion ul,
+  .survey-conclusion li { text-align: left; }
+</style>
+
+<style>
+  /* Screenshot block */
+  .survey-figure {
+    margin: 2rem 0 1.5rem;         /* more top/bottom space */
+    text-align: left;
+  }
+  .survey-figure img {
+    display: block;
+    margin: 0;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+  }
+  .survey-figure figcaption {
+    margin-top: .6rem;
+    font-size: .95rem;
+    line-height: 1.6;
+    opacity: .8;
+    text-align: left;
+  }
+
+  /* Conclusion block */
+  .survey-conclusion {
+    margin-top: 1.75rem;           /* space above the section */
+    padding-top: .75rem;
+    border-top: 1px solid #eee;    /* subtle divider */
+    text-align: left;
+    max-width: 72ch;               /* comfortable reading width */
+  }
+  .survey-conclusion h4 {
+    margin: 0 0 .9rem;
+    line-height: 1.25;
+    font-weight: 600;
+    letter-spacing: .2px;
+  }
+  .survey-conclusion p {
+    margin: 0 0 1rem;
+    line-height: 1.75;             /* taller line height */
+  }
+  .survey-conclusion ul {
+    margin: 0 0 1rem 1.25rem;      /* more space below list */
+    padding: 0;
+  }
+  .survey-conclusion li {
+    margin: 0 0 .7rem;             /* space between bullets */
+    line-height: 1.7;
+  }
+
+  /* Optional: add extra gap below the whole block before the next section */
+  .survey-conclusion + * {
+    margin-top: 2rem;
+  }
+
+  /* Slightly larger on wide screens */
+  @media (min-width: 900px) {
+    .survey-conclusion { margin-top: 2rem; }
+    .survey-figure { margin: 2.25rem 0 1.75rem; }
+  }
+</style>
+
+
       </section>
 
 <section id="learning" class="panel">
