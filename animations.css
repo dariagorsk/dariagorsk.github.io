@@ -44,7 +44,7 @@ html, body {
   border-radius: 8px;
 }
 
-/* width helpers (desktop, 12 columns) */
+
 .w1{grid-column: span 1;}
 .w2{grid-column: span 2;}
 .w3{grid-column: span 3;}
@@ -53,18 +53,18 @@ html, body {
 .w6{grid-column: span 6;}
 .w7{grid-column: span 7;}
 .w8{grid-column: span 8;}
-/* (you can add up to w12 if you need full width) */
+
 
 /* tablet: 8 columns */
 @media (max-width: 1024px){
   .anim-grid{ grid-template-columns: repeat(8, minmax(0,1fr)); }
-  .w6{grid-column: span 8;}  /* make wide items full-width if needed */
+  .w6{grid-column: span 8;} 
   .w8{grid-column: span 8;}
 }
 
 /* mobile: 2 columns */
 @media (max-width: 640px){
   .anim-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  /* everything spans both columns by default on very small screens */
+
   .anim{ grid-column: span 2; }
 }

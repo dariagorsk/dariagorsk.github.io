@@ -48,7 +48,7 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 }
 
 /* =========================
-   TABS (text-only with underline)
+   TABS 
    ========================= */
 .tabs{
   display:flex;
@@ -98,10 +98,10 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   .tab::after{ bottom:-6px; }
 }
 
-/* 3-column grid: [arrow] [centered tabs] [spacer same width as arrow] */
+
 .masthead{
   display: grid;
-  grid-template-columns: 40px 1fr 40px; /* match back-btn size */
+  grid-template-columns: 40px 1fr 40px; 
   column-gap: clamp(16px, 3vw, 32px);
   align-items: start;
   margin-bottom: clamp(48px, 7vw, 96px);
@@ -124,25 +124,25 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 .back-btn:focus-visible{ background:#fff; border-color:rgba(0,0,0,.2); }
 .back-btn:active{ transform:translateY(1px); }
 
-/* Tabs sit in the middle column and are centered inside it */
+
 .masthead .tabs{
   grid-column: 2;
   display: flex;
-  justify-content: center;   /* <— keeps tabs centered */
+  justify-content: center;   
   align-items: center;
   gap: clamp(24px, 8vw, 160px);
-  margin: 0;                 /* spacing handled by .masthead */
+  margin: 0;                
   max-width: 1100px;
   width: 100%;
 }
 
-/* Spacer mirrors the back button to keep symmetry */
+
 .masthead-spacer{
   grid-column: 3;
   width: 40px; height: 40px;
 }
 
-/* Mobile: stack arrow above tabs */
+
 @media (max-width: 640px){
   .masthead{
     grid-template-columns: 1fr;
@@ -296,7 +296,7 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
 .arrow.right{ right:8px; }
 .arrow:hover{ background:#fff; }
 
-/* If you add gradient edge fades, ignore clicks on them */
+
 .gallery-container::before,
 .gallery-container::after { pointer-events: none; }
 
@@ -305,7 +305,7 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   .gallery{ --vpad:12px; gap:16px; padding:var(--vpad) 40px; }
 }
 
-/* Align Events gallery tighter to left edge to match sentence */
+
 #events .gallery{ --hpad-left: 4px; }
 #events .arrow.left{ left: 4px; }
 
@@ -332,13 +332,13 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   .ux-gallery.two-up{ grid-template-columns:1fr; }
 }
 
-/* More space between screenshot and conclusion */
+
 .survey-figure {
-  /* was: margin: clamp(28px, 4vw, 36px) 0 clamp(24px, 3.5vw, 32px); */
+
   margin: clamp(32px, 5vw, 48px) 0 clamp(36px, 6vw, 64px);
 }
 
-/* Reusable pill (matches your .meta.pills li look) */
+
 .pill{
   display:inline-flex;
   align-items:center;
@@ -359,12 +359,12 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   white-space:nowrap;
 }
 
-/* make the pill-heading sit nicely above text */
+
 .survey-conclusion .pill.pill-heading{
-  margin-bottom: .9rem;        /* space under the pill title */
+  margin-bottom: .9rem;        
 }
 
-/* optional: a compact label pill to prefix the result line */
+
 .pill.pill-label{
   padding:8px 14px;
   font-size: clamp(12px,1.2vw,15px);
@@ -426,10 +426,10 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   box-shadow: 0 10px 24px rgba(0,0,0,.06);
 }
 
-/* guard against grid children blowing out columns */
+
 .ux-case > *{ min-width: 0; }
 
-/* Usability section layout when paired with posters text */
+
 .ux-case.posters{
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -463,7 +463,7 @@ a,button,[role="button"],.clickable{ cursor:var(--cursor-link); }
   max-width: 100%;
 }
 .ds-sprite{
-  --w: 115;                 /* set per item inline */
+  --w: 115;                 
   width: calc(var(--w) * 1px);
   height: auto;
   display: inline-block;

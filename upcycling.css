@@ -11,7 +11,7 @@ body {
   overflow-y: auto;
 }
 
-/* Body font for the whole site */
+
 html, body {
   font-family: "Crimson Text", Georgia, Cambria, "Times New Roman", serif;
   font-weight: 400;
@@ -20,10 +20,10 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Keep your headings/tabs in TASA Explorer (optional, since you liked that look) */
+
 .page-title,
 .ux-text h3,
-.tab {  /* your nav tabs */
+.tab {  
   font-family: "TASA Explorer", serif;
 }
 
